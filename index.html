@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./styles/clock.css">
+    <link rel="stylesheet" href="./styles/svg.css">
+    <title>Agenda</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Bora pro dia Trybers!!</h1>
+      <h3>Cadastre os horários do dia de hoje!</h3>
+    </header>
+    <section class="main">
+      <section class="Entradas">
+        <section class="forms">
+          <h3>Cadastre compromissos individuais</h3>
+          <div class="form">
+            <div class="todo">
+              <label for="">A fazer</label>
+              <input type="text" name="" id="schedule">
+            </div>
+            <div class="initialHour">
+              <label for="">Inicio</label>
+              <input type="time" id="initialHour" name="initialHour" required>
+            </div>
+            <div class="finalHour">
+              <label for="">Fim</label>
+              <input type="time" id="finalHour" name="finalHour" required>
+            </div>
+            <span id="createSchedule"><img src="./images/calendar-plus.svg" alt=""></span>
+          </div>
+        </section>
+        <section class="textarea">
+          <form>
+            <label for="schedulesText">Copie o conteudo do post com a agenda do dia e cole no campo abaixo.</label>
+            <textarea id="schedulesText" name="schedulesText" rows="30" cols="50"></textarea>
+          </form>
+          <input id="submit" type="button" value="Cadastrar horários">
+        </section>
+      </section>
+      <section class="visuais">
+        <section class="todolist">
+          <div class="lists">
+            <ol class="list">
+            </ol>
+          </div>
+        </section>
+        <section class="watch">
+          <div class="clockAndSvg">
+            <div class="clock">
+              <img src="./images/hour_hand.svg" alt="" id="hourHand" class="hands hr">
+              <img src="./images/minute_hand.svg" alt="" id="minuteHand" class="hands mn">
+              <img src="./images/second_hand.svg" alt="" id="secondHand" class="hands sc">
+              <div class="date">
+                <span id="dayOfWeek"></span>
+                <span id="day"></span>
+                <span id="mouth"></span>
+                <span id="year"></span>
+              </div>
+              <div class="svgonclock">
+              </div>
+            </div>
+          </div>
+          <div class="digitalClock">
+            <span></span>
+          </div>
+        </section>
+      </section>
+    </section>
+    <script src="./data/data.js"></script>
+    <script src="./src/clock.js"></script>
+    <script src="./src/schedule_on_clock.js"></script>
+    <script src="./src/schedule_text_area.js"></script>
+  </body>
+
+</html>
