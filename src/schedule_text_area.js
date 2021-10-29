@@ -7,28 +7,18 @@ schedulesTrybe.addEventListener('click', () => {
 
   const linesByHour = arrayOfLinesOnTextArea.map((line) => {
     // console.log(line);
-    // const hour = line.toString().match(/(0[0-9]|1[0-9]|2[0-9])h([0-9])\w+/);
-    const hour = line.toString().match(/(0[0-9]|1[0-9]|2[0-9])h([0-9]|([ ]))\w+/);
-    if (hour !== null) return hour;
-  });
+    const re = /[0-2][0-9](h|:)[0-5][0-9]/g
+    const hour = [...line.toString().matchAll(re)];
+    if (hour.length > 0) return [hour[0][0], hour[1][0], hour[0].input];
+  }).filter(el => el);
 
-
-  let arrayHorarios = [];
-
-  linesByHour.forEach((line) => {
-    if (typeof line !== 'undefined') {
-      arrayHorarios.push(line)
-    }
-  });
-  console.log(arrayHorarios)
-
-  arrayHorarios.forEach((hora) => {
-    const initialHourSeparated = hora[0].split('h');
-    const finalHourSeparated = initialHourSeparated;
+  linesByHour.forEach((hora) => {
+    const initialHourSeparated = hora[0].split(/h|:/);
+    const finalHourSeparated = hora[1].split(/h|:/);
     const arrayRGB = gererateRandomColor();
     const idToGetSchedule = generateId(initialHourSeparated);
     const svg = createSVG(arrayRGB, idToGetSchedule);
-    createLI(initialHourSeparated, finalHourSeparated, hora.input, arrayRGB);
+    createLI(initialHourSeparated, finalHourSeparated, hora[2], arrayRGB);
 
     // console.log(initialHourSeparated, 1, svg, arrayRGB)
 
