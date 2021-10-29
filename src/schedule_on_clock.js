@@ -103,7 +103,7 @@ function createLI(initialHourSeparated, finalHourSeparated, schedule, arrayRGB) 
   // const img = document.createElement('IMG')
   const deleteIcon = document.createElement('span');
 
-  scheduleOnLi.innerHTML = `${initialHourSeparated[0]}:${initialHourSeparated[1]} ate
+  scheduleOnLi.innerHTML = `${initialHourSeparated[0]}:${initialHourSeparated[1]} até
                             ${finalHourSeparated[0]}:${finalHourSeparated[1]}`;
   scheduleOnLi.style.background = `rgb(${arrayRGB[0]},${arrayRGB[1]},${arrayRGB[2]},0.60)`;;
   scheduleOnLi.setAttribute('class', 'schedule');
